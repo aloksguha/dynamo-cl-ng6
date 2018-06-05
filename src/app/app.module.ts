@@ -10,6 +10,9 @@ import { TableDataComponent } from './table-data/table-data.component';
 import { AppRoutingModule } from './routing/app.routes.module';
 import { DataService } from './data.service';
 import { TableCardsComponent } from './table-list/table-cards/table-cards.component';
+import { TableSelectComponent } from './table-list/table-select/table-select.component';
+import { DataConfigComponent } from './header/data-config/data-config.component';
+
 
 
 
@@ -19,7 +22,9 @@ import { TableCardsComponent } from './table-list/table-cards/table-cards.compon
     HeaderComponent,
     TableListComponent,
     TableDataComponent,
-    TableCardsComponent
+    TableCardsComponent,
+    TableSelectComponent,
+    DataConfigComponent
   ],
   imports: [
     HttpClientModule,

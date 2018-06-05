@@ -10,6 +10,7 @@ export class DataConfigComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }
