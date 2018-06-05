@@ -1,20 +1,20 @@
 <p>
-  {{selectedTable}}
+        {{selectedTable}}
 </p>
 <hr>
-<table class="table table-striped" ng-show="tableData">
-                        
-  <thead>
-          <tr>
-                  <th scope="col" *ngFor="let colkey of colKeys">{{colkey}}</th>    
-          </tr>
-  </thead>
-  <tbody>
-          <tr *ngFor="let rowData of tablecontent; let i = index">
-                  <td *ngFor="let colk of colKeys">
-                          {{rowData[colk]}}
-                  </td>
-          </tr>
-  </tbody>
-</table>
-
+<div style="height: calc(100vh - 70px); overflow-y: scroll;">
+        <table class="table table-striped" ng-show="tableData">
+                <thead>
+                        <tr>
+                                <th scope="col" *ngFor="let colkey of colKeys">{{colkey}}</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        <tr *ngFor="let rowData of tablecontent; let i = index">
+                                <td *ngFor="let colk of colKeys">
+                                        {{rowData[colk]}}
+                                </td>
+                        </tr>
+                </tbody>
+        </table>
+</div>
