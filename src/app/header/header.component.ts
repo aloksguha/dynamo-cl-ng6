@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { NgForm }   from '@angular/forms';
+
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   title : string = 'DynamoDB Client'
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit() {
+  }
+
+  onChangeconfig(form: NgForm){
+    const formVal = form.value;
+    console.log(formVal); 
+    
+    alert('Config Updated !! ')
   }
 
 }

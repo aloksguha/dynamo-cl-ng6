@@ -10,9 +10,86 @@
 
       <ul class="nav navbar-nav navbar-right">
         <ul class="nav navbar-nav">
-          <li routerLinkActive="active"><a routerLink="/config">configure</a></li>
+          <li routerLinkActive="">
+            <!-- <a routerLink="/config">configure</a> -->
+            <a class="cursor:pointer;" data-toggle="modal" data-target=".alok"> <span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+          </li>
         </ul>
       </ul>
+      
     </div>
   </div>
 </nav>
+
+
+<!-- <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      
+    </div>
+  </div>
+</div> -->
+
+<div class="modal fade alok" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+    <div class="modal-dialog" role="document">
+      <form (ngSubmit)="onChangeconfig(f)" #f="ngForm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="gridSystemModalLabel">Configure Database</h4>
+        </div>
+        <div class="modal-body">
+          
+          <div class="row toppad">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+              <label for="host">Host</label>
+            </div>
+            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+              <input type="text" name="host" id="host" class="form-control" value="" required="required" pattern="" title="" ngModel>
+            </div>
+          </div>
+
+          <div class="row toppad">
+              <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <label for="host">Port</label>
+              </div>
+              <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                <input type="text" name="port" id="port" class="form-control" value="" required="required" pattern="" title="" ngModel>
+              </div>
+            </div>
+
+            <div class="row toppad">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                  <label for="host">Region</label>
+                </div>
+                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                  <input type="text" name="region" id="region" class="form-control" value="" required="required" pattern="" title="" ngModel>
+                </div>
+              </div>
+
+              <div class="row toppad">
+                  <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <label for="host">Username</label>
+                  </div>
+                  <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                    <input type="text" name="username" id="username" class="form-control" value=""  pattern="" title="" ngModel>
+                  </div>
+                </div>
+
+                <div class="row toppad">
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                      <label for="host">Password</label>
+                    </div>
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                      <input type="password" name="password" id="password" class="form-control" value="" pattern="" title="" ngModel>
+                    </div>
+                  </div>
+         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </form>
+    </div><!-- /.modal-dialog -->`
+  </div><!-- /.modal -->
