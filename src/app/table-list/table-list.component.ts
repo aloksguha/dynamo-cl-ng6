@@ -7,11 +7,22 @@ import { DataService } from '../data.service';
   styleUrls: ['./table-list.component.css']
 })
 export class TableListComponent implements OnInit {
-  tables = [];
+  tables : string[] = [];
   constructor(private service : DataService) { }
 
   ngOnInit() {
-    this.tables = this.service.getTables();
+     this.getTablesFromDB();
   }
+
+    getTablesFromDB(): void {
+      this.service.getTables()
+        .subscribe(
+          restItems => {
+             console.log(typeof restItems);
+             console.log(restItems);
+             this.tables = restItems.TableNames;
+          }
+        )
+    }
 
 }

@@ -1,3 +1,20 @@
 <p>
-  table-data works!
+  {{selectedTable}}
 </p>
+<hr>
+<table class="table table-striped" ng-show="tableData">
+                        
+  <thead>
+          <tr>
+                  <th scope="col" *ngFor="let colkey of colKeys">{{colkey}}</th>    
+          </tr>
+  </thead>
+  <tbody>
+          <tr *ngFor="let rowData of tablecontent; let i = index">
+                  <td *ngFor="let colk of colKeys">
+                          {{rowData[colk]}}
+                  </td>
+          </tr>
+  </tbody>
+</table>
+

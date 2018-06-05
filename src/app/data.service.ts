@@ -1,10 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  tables = [ 
+  tables = [
       'MockApis',
       'MockCounters',
       'MockPaths',
@@ -34,9 +40,20 @@ export class DataService {
       'vagrant_tci_users',
       'vagrant_tci_vpnconnections' ];
 
-  getTables(){
-    return this.tables.slice();
-  }    
+  
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+  
+  getTables() {
+    return this.http
+    .get<any>('http://localhost:3000/tables')
+    .pipe(map(data => data));
+  }
+
+  getTableDetails(tableName: string) {
+    return this.http
+    .get<any>('http://localhost:3000/tables/'+tableName)
+    .pipe(map(data => data));
+  }
+
 }
