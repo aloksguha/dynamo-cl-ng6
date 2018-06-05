@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { TableDataComponent } from './table-data/table-data.component';
-import { AppRoutingModule } from './app.routes.module';
+import { AppRoutingModule } from './routing/app.routes.module';
 import { DataService } from './data.service';
 import { TableCardsComponent } from './table-list/table-cards/table-cards.component';
 
