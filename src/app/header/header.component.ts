@@ -18,8 +18,21 @@ export class HeaderComponent implements OnInit {
   onChangeconfig(form: NgForm){
     const formVal = form.value;
     console.log(formVal); 
-    
+    // submit form
     alert('Config Updated !! ')
+  }
+
+  fillDefault(form: NgForm){
+    const formVal = form.value;
+    console.log(formVal); 
+    form.resetForm({
+      host:"http://localhost/",
+      password:"",
+      port:"8000",
+      region:"us-east-1",
+      username:""
+    });
+    
   }
 
 }
