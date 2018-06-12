@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { DataService } from '../data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-table-data',
@@ -13,6 +14,7 @@ export class TableDataComponent implements OnInit {
   colKeys: string[] = [];
   tablecontent: any[] = [];
   isTableContent: boolean = false;
+  configChangeSubscriber :Subscription;
  
 
   constructor(private route:ActivatedRoute, private router: Router, private service : DataService) { }
@@ -25,6 +27,14 @@ export class TableDataComponent implements OnInit {
         this.colKeys =[];
       }
     )
+
+    this.configChangeSubscriber = this.service.configChanged.subscribe(
+      (data: string) => {
+        this.router.navigate(['']);
+      }
+    );
+
+
   }
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { NgForm }   from '@angular/forms';
+import { DataService } from '../data.service';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { NgForm }   from '@angular/forms';
 })
 export class HeaderComponent implements OnInit {
   title : string = 'DynamoDB Client'
-  constructor() { 
+  constructor(private service:DataService) { 
   }
 
   ngOnInit() {
@@ -18,8 +19,14 @@ export class HeaderComponent implements OnInit {
   onChangeconfig(form: NgForm){
     const formVal = form.value;
     console.log(formVal); 
-    // submit form
-    alert('Config Updated !! ')
+    this.service.sendConfig(formVal).subscribe(
+      (data: any) => {
+        console.log(data);
+        alert('Config Updated !! ');
+        this.service.configChanged.next('config_upated');
+      }
+    );
+    
   }
 
   fillDefault(form: NgForm){
@@ -30,7 +37,8 @@ export class HeaderComponent implements OnInit {
       password:"",
       port:"8000",
       region:"us-east-1",
-      username:""
+      username:"",
+      accesskey:""
     });
     
   }
