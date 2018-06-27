@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  margin-bottom: 5px;
+}
+a {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+a h5 {
+  font-size: 1.1em;
+  margin-bottom: 0;
+}
